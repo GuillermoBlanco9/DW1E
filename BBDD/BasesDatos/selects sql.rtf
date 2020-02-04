@@ -1,0 +1,384 @@
+{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang10\f0\fs22 -- 1)\par
+select NomEquipo,director\par
+from ejercicios.equipo;\par
+-- 2)all team names, directos if director beggins with M\par
+select nomequipo,director\par
+from ejercicios.equipo\par
+where director like 'M%';\par
+-- 3)dorsal, cyclist name and team name for team different than artiach and banesto\par
+select dorsal,nombre,nomequipo\par
+from ejercicios.ciclista\par
+where nomequipo != 'Artiach' and nomequipo != 'Banesto';\par
+-- 4) winners of the stages with more than 180 kms\par
+select dorsal \par
+from ejercicios.etapa \par
+where kms > 180\par
+order by DORSAL;\par
+-- 5)like select 4 with no repeated dorsal\par
+select distinct dorsal\par
+from ejercicios.etapa \par
+where kms > 180\par
+-- group by dorsal\par
+order by DORSAL;\par
+-- 6)listar todos los numeros de etapa si en las etapas tenemos un paso de monta\'f1a con altura mayor que 200\par
+select numetapa,altura\par
+from ejercicios.puerto\par
+where altura >2000;\par
+-- 7)list passes name and stage number of the stage with the maximun slope\par
+select nombrepuerto,numetapa pendiente\par
+from ejercicios.puerto\par
+order by pendiente desc limit 1;\par
+-- 8)maillot color for tipo:mas sufrido\par
+select color,tipo\par
+from ejercicios.maillot\par
+where tipo like 'mas sufrido';\par
+\par
+-- 9)stage numbers in wich dorsal 2 has won. list dorsal, cyclist name and stage number\par
+select e.dorsal, nombre, numetapa\par
+from ejercicios.ciclista e\par
+inner join ejercicios.etapa d\par
+on e.dorsal = d.DORSAL\par
+where e.dorsal = 2;\par
+-- 10)stage number with the gratest slope,\par
+select numetapa, max(pendiente)\par
+from ejercicios.etapa e\par
+inner join cyclist.puerto p\par
+on e.NUMETAPA=p.NUMETAPA;\par
+-- using(numetapa);\par
+-- 11)cyclist name, team name , mayot color of the cycist who won stage number 9\par
+select nombre,nomequipo,color\par
+from ejercicios.ciclista e\par
+inner join ejercicios.etapa p\par
+using(dorsal)\par
+inner join ejercicios.lleva l\par
+using(numetapa)\par
+inner join ejercicios.maillot m\par
+using(codigo)\par
+where p.NUMETAPA=9;\par
+\par
+select c.NOMBRE, c.NOMEQUIPO, m.COlor\par
+from ejercicios.ciclista c\par
+inner join ejercicios.etapa e\par
+using(dorsal)\par
+inner join ejercicios.lleva l\par
+on e.dorsal=l.dorsal\par
+inner join ejercicios.maillot m\par
+on l.CODIGO like m.CODIGO\par
+where e.NUMETAPA=9;\par
+\par
+-- 12)what are the passs names of all the cyclist who wear the malliot code MGE\par
+select distinct p.nombrepuerto,l.codigo\par
+from ejercicios.puerto p\par
+inner join ejercicios.lleva l\par
+on p.dorsal=l.DORSAL\par
+where l.CODIGO like 'MGE';\par
+-- 16)cyclist name , stage number for the ciclyst who wom more than 2 races\par
+select c.nombre, e.numetapa\par
+from ejercicios.ciclista c\par
+inner join ejercicios.etapa e\par
+using(dorsal)\par
+group by c.nombre\par
+having count(*) >1;\par
+\par
+\par
+-- LEFT AND RIGHT INNER JOIN\par
+\par
+-- 17)dorsal and name of every ciclista and ciclistas that won stages\par
+select dorsal, nombre, numetapa\par
+from ejercicios.ciclista e\par
+left outer join ejercicios.etapa d\par
+using(dorsal);\par
+\par
+-- 18)dorsal and name of every ciclista and the director if ciclista is less than 30 years old\par
+select dorsal, nombre, edad , director\par
+from ejercicios.ciclista e\par
+left outer join ejercicios.equipo d\par
+using(nomequipo);\par
+\par
+-- 19)every nombrepuerto and the numetapas this pass mountain belongs to\par
+select nombrepuerto, numetapa, nombre\par
+from ejercicios.puerto e\par
+left outer join ejercicios.ciclista a\par
+using(dorsal);\par
+\par
+-- 20)nomequipo director and how many ciclistas has each equipo  \par
+select nomequipo, director , COUNT(NOMBRE)"cYCLIST nUMBRE"\par
+from ejercicios.equipo\par
+right outer join ejercicios.ciclista\par
+using(nomequipo)\par
+group by equipo.NOMEQUIPO;\par
+\par
+-- 21)ciclista with dorsal = 1 has participated in a stage with categoria 1 puerto de monta\'f1a\par
+\par
+\par
+\par
+-- CLAUSULA IF\par
+select dorsal, nombre, if(edad > 30, edad , concat('Edad menor de 30 a\'f1os: ', edad))\par
+from ejercicios.ciclista;\par
+\par
+-- from etapa: Numetapa and dorsal if  kms>100  and  kms<200\par
+\par
+select numetapa, if(kms>100 and kms<200,dorsal,'Etapa con kilometros superiores')dorsal,kms\par
+from ejercicios.etapa;\par
+\par
+-- dorsal and cyclist name if the cyclist belongs to banesto team if not apperas differetn\par
+select dorsal, if(nomequipo like 'Banesto',nombre,concat('Different ',nomequipo))nombre\par
+from ejercicios.ciclista;\par
+\par
+select NOMEQUIPO, group_concat(nombre) 'Ciclistas del equipo', count(nombre)'numero de ciclistas'\par
+from ejercicios.ciclista\par
+group by NOMEQUIPO;\par
+\par
+\par
+-- numetapa salida y llegada in the same colum if kms > 200 Recorrido if not will appear *+kms \par
+\par
+select numetapa, if(kms > 200,concat(salida,', ',llegada),concat('*',kms,', ',dorsal)) 'Recorrido'\par
+from ejercicios.etapa\par
+group by NUMETAPA;\par
+\par
+-- nomequipo, lista de ciclista if nomequipo begins with M\par
+\par
+select nomequipo, if(nomequipo like 'M%',group_concat(nombre),'Diferent')nombre\par
+from ejercicios.ciclista\par
+group by NOMEQUIPO;\par
+\par
+select nombre, (case when dorsal =30 then 'Treinta'\par
+\tab\tab\tab\tab\tab when dorsal =1 then 'The best'\par
+                    when dorsal > 40 then 'The last'\par
+                    else 'The rest'\par
+                    end) 'List'\par
+from ejercicios.ciclista;\par
+\par
+\par
+\par
+\par
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\par
+-- 1.- Obtener una lista de todos los productos indicando para cada uno su idfab, idproducto, descripci\'f3n, precio y precio con I.V.A. incluido (es el precio anterior aumentado en un 16%). \par
+select idfab, idproducto, descripcion, precio,round(precio+precio*0.16) 'Precio con iva'\par
+from ejercicios2.productos;\par
+\par
+\par
+-- 2.- De cada pedido queremos saber su n\'famero de pedido, fab, producto, cantidad, precio unitario e importe. \par
+ \par
+\par
+-- 3.- Listar de cada empleado su nombre, n\'ba de d\'edas que lleva trabajando en la empresa y su a\'f1o de nacimiento (suponiendo que este a\'f1o ya ha cumplido a\'f1os).\par
+select nombre,datediff(CURRENT_TIME(),contrato) 'N dias en empresa',2020-edad 'A\'f1o de nacimiento'\par
+from ejercicios2.empleados;\par
+\par
+\par
+-- 4.- Obtener la lista de los clientes ordenados por c\'f3digo de representante asignado, visualizar todas la columnas de la tabla.\par
+\par
+select nombre,repclie\par
+from ejercicios2.clientes\par
+order by repclie;\par
+\par
+-- 5.- Obtener las oficinas ordenadas por orden alfab\'e9tico de regi\'f3n y dentro de cada regi\'f3n por ciudad, si hay m\'e1s de una oficina en la misma ciudad, aparecer\'e1 primero la que tenga el n\'famero de oficina mayor.\par
+\par
+select oficina,region,ciudad \par
+from ejercicios2.oficinas\par
+order by oficina desc,region asc,ciudad asc;\par
+\par
+-- 6.- Obtener los pedidos ordenados por fecha de pedido.\par
+\par
+select fechapedido,producto\par
+from ejercicios2.pedidos\par
+order by fechapedido;\par
+\par
+-- 7.- Listar las cuatro l\'edneas de pedido m\'e1s caras (las de mayor importe).\par
+\par
+select *\par
+from ejercicios2.pedidos\par
+order by importe desc limit 4;\par
+\par
+-- 8.- Obtener las mismas columnas que en el ejercicio 2 pero sacando unicamente las 5 l\'edneas de pedido de menor precio unitario.\par
+\par
+select *\par
+from ejercicios2.pedidos\par
+order by importe asc limit 5; \par
+\par
+-- 9.- Listar toda la informaci\'f3n de los pedidos de marzo.\par
+\par
+select *\par
+from ejercicios2.pedidos\par
+where MONTH(fechapedido)= 03;\par
+\par
+-- 10.- Listar los n\'fameros de los empleados que tienen una oficina asignada.\par
+\par
+select numemp\par
+from ejercicios2.empleados\par
+where oficina not like 'null';\par
+\par
+-- 11.- Listar los n\'fameros de las oficinas que no tienen director.\par
+\par
+select oficina \par
+from ejercicios2.oficinas\par
+where dir is null;\par
+\par
+-- 12.- Listar los datos de las oficinas de las regiones del norte y del este (tienen que aparecer primero las del norte y despu\'e9s las del este).\par
+\par
+select *\par
+from ejercicios2.oficinas\par
+where region in ('norte','este')\par
+order by region desc;\par
+\par
+-- 13.- Listar los empleados de nombre Juan.\par
+\par
+select nombre\par
+from ejercicios2.empleados\par
+where nombre like 'Juan%';\par
+\par
+-- 14.- Listar los productos cuyo idproducto acabe en x.\par
+\par
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\par
+\par
+\par
+RESUMEN ***********************************************************************************\par
+\par
+-- RESUMEN ***********************************************************************************\par
+\par
+-- 1.- \'bfCu\'e1l es la cuota media y las ventas medias de todos los empleados?\par
+select round(avg(cuota),2),round(avg(ventas),2)\par
+from ejercicios2.empleados;\par
+\par
+\par
+-- 2.- Hallar el importe medio de pedidos, el importe total de pedidos y el precio medio de venta (el precio de venta es el precio unitario en cada pedido).\par
+select round(avg(importe),2),round(sum(importe),2),round(avg(importe/cant),2) -- redondear a dos decimales.\par
+from ejercicios2.pedidos;\par
+\par
+\par
+-- 3.- Hallar el precio medio de los productos del fabricante ACI.\par
+select round(avg(precio),2) 'Precio medio'\par
+from ejercicios2.productos\par
+where idfab like 'ACI';\par
+\par
+\par
+-- 4.- \'bfCu\'e1l es el importe total de los pedidos realizados por el empleado Vicente Pantalla?\par
+\par
+select sum(importe) as total_ventas\par
+from ejercicios2.empleados \par
+inner join ejercicios2.pedidos\par
+on empleados.numemp=pedidos.rep\par
+where nombre = 'Vicente Pantalla';\par
+\par
+\par
+\par
+-- 5.- Hallar en qu\'e9 fecha se realiz\'f3 el primer pedido (suponiendo que en la tabla de pedidos tenemos todos los pedidos realizados hasta la fecha).\par
+\par
+select min(fechapedido)\par
+from ejercicios2.pedidos;\par
+\par
+-- 6.- Hallar cu\'e1ntos pedidos hay de m\'e1s de 25000 ptas.\par
+\par
+select group_concat(importe) 'Importes' ,count(cant)\par
+from ejercicios2.pedidos\par
+where importe > 25000;\par
+\par
+\par
+-- 7.- Listar cu\'e1ntos empleados est\'e1n asignados a cada oficina, indicar el n\'famero de oficina y cu\'e1ntos hay asignados.\par
+select oficina, count(*) \par
+from ejercicios2.empleados\par
+group by oficina;\par
+\par
+\par
+-- 8.- Para cada empleado, obtener su n\'famero, nombre, e importe vendido por ese empleado a cada cliente indicando el n\'famero de cliente.\par
+select numemp, nombre, clie, sum(importe)\par
+from ejercicios2.empleados\par
+inner join ejercicios2.pedidos\par
+on pedidos.rep=empleados.numemp\par
+group by numemp,clie\par
+order by numemp;\par
+\par
+-- 9.- Para cada empleado cuyos pedidos suman m\'e1s de 30.000\'80, hallar su importe medio de pedidos. En el resultado indicar el n\'famero de empleado y su importe medio de pedidos.\par
+\par
+select numemp 'Numero de empleado' ,avg(importe) 'importe medio'\par
+from ejercicios2.empleados\par
+inner join ejercicios2.pedidos\par
+on empleados.numemp=pedidos.rep\par
+group by rep\par
+having sum(importe) > 30000\par
+order by rep;\par
+\par
+\par
+\par
+-- 10.- Listar de cada producto, su descripci\'f3n, precio y cantidad total pedida, incluyendo s\'f3lo los productos cuya cantidad total pedida sea superior al 75% del stock; y ordenado por cantidad total pedida.\par
+\par
+select descripcion, precio, existencias\par
+from ejercicios2.productos\par
+inner join ejercicios2.pedidos\par
+on productos.existencias = pedidos.cant\par
+where cant > (existencias * 0.75)\par
+order by existencias;\par
+\par
+-- 11.- Saber cu\'e1ntas oficinas tienen empleados con ventas superiores a su cuota, no queremos saber cuales sino cu\'e1ntas hay.-- \par
+select count(distinct oficina)\par
+from ejercicios2.empleados\par
+where ventas > cuota;\par
+\par
+\par
+\par
+-- ************************************************************** MULTITABLA *********************************************************************************\par
+-- 1 Listar las oficinas del este indicando para cada una de ellas su n\'famero, ciudad, n\'fameros y nombres de sus empleados. Hacer una versi\'f3n en la que aparecen s\'f3lo las que tienen empleados, y hacer otra en las que aparezcan las oficinas del este que no tienen empleados.\par
+\par
+select e.numemp,o.ciudad,e.nombre,o.oficina\par
+from ejercicios2.oficinas o\par
+join ejercicios2.empleados e\par
+on o.oficina=e.oficina\par
+where o.region='este';\par
+-- 1.1\tab\tab Oficinas del este con empleados:\par
+\par
+\par
+\par
+-- 1.2\tab\tab Oficinas del este incluyendo las que no tienen director:\par
+\par
+select distinct o.oficina,o.dir\par
+from ejercicios2.oficinas o\par
+join ejercicios2.empleados e\par
+where region like 'este' or region like 'este' and dir like null;\par
+\par
+-- 1.3\tab\tab Oficinas de cualquier regi\'f3n incluyendo las que no tienen empleados:\par
+\par
+select o.oficina,e.numemp\par
+from ejercicios2.oficinas o\par
+left join ejercicios2.empleados e\par
+using(oficina);\par
+\par
+-- 1.4\tab\tab Oficinas de cualquier regi\'f3n que no tienen empleados:\par
+\par
+-- 2 Listar los pedidos mostrando su n\'famero, importe, nombre del cliente, y el l\'edmite de cr\'e9dito del cliente correspondiente (todos los pedidos tienen cliente y representante).\par
+select numpedido, impote , clientes.nombre,clientes.limitecredito\par
+from ejercicios2.pedidos\par
+join ejercicios2.clientes\par
+on pedidos.clie=clientes.numclie;\par
+-- 3 Listar los datos de cada uno de los empleados, la ciudad y regi\'f3n en donde trabaja.\par
+ \par
+-- 4 Listar las oficinas con objetivo superior a 600.000\'80 indicando para cada una de ellas el nombre de su director.\par
+\par
+-- 5 Listar los pedidos superiores a 25.000\'80, incluyendo el nombre del empleado que tom\'f3 el pedido y el nombre del cliente que lo solicit\'f3.\par
+\par
+-- 6 Hallar los empleados que realizaron su primer pedido el mismo d\'eda en que fueron contratados.\par
+\par
+-- 7 Listar los empleados con una cuota superior a la de su jefe; para cada empleado sacar sus datos y el n\'famero, nombre y cuota de su jefe.\par
+\par
+-- 8 Listar los c\'f3digos de los empleados que tienen una l\'ednea de pedido superior a 10.000 o que tengan una cuota inferior a 10.000.\par
+\par
+-- ************************************************************** SUBCONSULTAS *********************************************************************************\par
+\par
+-- 1.- Listar los nombres de los clientes que tienen asignado el representante Alvaro Jaumes (suponiendo que no pueden haber representantes con el mismo nombre).\par
+\par
+-- 2.- Listar los vendedores (numemp, nombre, y n\'ba de oficina) que trabajan en oficinas "buenas" (las que tienen ventas superiores a su objetivo).\par
+\par
+-- 3.- Listar los vendedores que no trabajan en oficinas dirigidas por el empleado 108.\par
+\par
+-- 4.- Listar los productos (idfab, idproducto y descripci\'f3n) para los cuales no se ha recibido ning\'fan pedido de 25000 o m\'e1s.\par
+\par
+-- 5.- Listar los clientes asignados a Ana Bustamante que no han remitido un pedido superior a 3000\'80.\par
+\par
+-- 6.- Listar las oficinas en donde haya un vendedor cuyas ventas representen m\'e1s del 55% del objetivo de su oficina.\par
+\par
+-- 7.- Listar las oficinas en donde todos los vendedores tienen ventas que superan al 50% del objetivo de la oficina.\par
+\par
+-- 8.- Listar las oficinas que tengan un objetivo mayor que la suma de las cuotas de sus vendedores.\par
+\par
+}
+ 
