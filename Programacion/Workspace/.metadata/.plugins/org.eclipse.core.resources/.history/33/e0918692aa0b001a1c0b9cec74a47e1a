@@ -1,0 +1,49 @@
+package UTILIDAD;
+
+public class PruebaInterfaces implements MiInterfaz
+{
+	private double a=12.45, b=20.15;
+	private int c=20, d=40;	
+			
+	
+	public static void main(String[] args)
+	{
+		PruebaInterfaces obj=new PruebaInterfaces();
+		double resulDoble=obj.sumar(obj.a, obj.b);
+		int resulEntero=obj.sumar(obj.c, obj.d);
+		
+		obj.mostrar(resulDoble);
+		obj.mostrar(resulEntero);
+		
+		
+	}
+
+
+
+	public double sumar(double a,double b)
+	{
+	
+		return a+b;
+	}
+
+
+	
+	public int sumar(int c, int d) {
+		
+		return c+d;
+	}
+
+
+
+	public void mostrar(double a) 
+	{
+		System.out.println(a);
+		
+	}
+	
+	public void mostrar(int a)
+	{
+		System.out.println(a);
+	}
+
+}

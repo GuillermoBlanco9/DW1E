@@ -1,0 +1,26 @@
+
+public class MisEnumerados 
+{
+	public enum Clase
+	{
+		mates("Aula 13",20),fisica("Aula 1",12),programacion("Aula 0",22);
+		
+		public String aula;
+		public int numAlumnos;
+		private Clase(String aula,int numAlumnos)
+		{
+			this.aula=aula;
+			this.numAlumnos=numAlumnos;
+			
+		}
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		Clase miClase=Clase.fisica;
+		System.out.println(miClase.name());
+
+	}
+
+}

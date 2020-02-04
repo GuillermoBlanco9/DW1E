@@ -1,0 +1,17 @@
+
+public class Enumerados {
+	public enum Persones{Maria,Jueves,Chus,Diego,Jose}
+	
+
+	Persones nombre=Persones.Jueves;
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		Persones nombre=Persones.Jueves;
+		System.out.println(nombre);
+
+	}
+
+}

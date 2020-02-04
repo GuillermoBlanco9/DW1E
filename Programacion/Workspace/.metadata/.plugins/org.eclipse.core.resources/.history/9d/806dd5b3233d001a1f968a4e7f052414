@@ -1,0 +1,19 @@
+import java.util.*;
+
+
+public class guillermoBlancoP02_Errores {
+
+	public static void main(String[] args) {
+		Scanner dato=new Scanner(System.in);
+		
+		String nom="Excelencia";
+		double num=0.0;
+		
+		try()
+		
+		
+		
+
+	}
+
+}

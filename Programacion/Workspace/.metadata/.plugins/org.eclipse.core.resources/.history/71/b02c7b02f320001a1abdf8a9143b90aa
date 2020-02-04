@@ -1,0 +1,16 @@
+package ArrayLists;
+
+public class Avion
+{
+	private String nombre;
+	private int numPasajeros;
+	
+	
+
+	public static void main(String[] args)
+	{
+		
+
+	}
+
+}

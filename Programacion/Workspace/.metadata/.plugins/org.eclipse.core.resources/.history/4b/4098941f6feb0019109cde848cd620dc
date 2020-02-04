@@ -1,0 +1,62 @@
+
+public class TiposJava 
+{
+	
+
+	public static void main(String[] args) 
+	{
+		/*double a;
+		int b;
+		a=150.45;
+		
+		b=(int)a;
+		
+		System.out.println(a+" "+b);
+		*/
+		
+		
+		int milista[]=new int[50];
+		/*
+		char miListaCaracter[]=new char[10];
+		primera forma de arraig
+		milista[0]=100;
+		milista[1]=200;
+		milista[2]=300;
+		milista[3]=400;
+		milista[4]=500;
+		milista[5]=600;
+		*/
+		
+		//segunda forma de arraig
+		//int milista2[]= {100,200,300,400,500,600};
+		
+		//tercera forma de arraig con un criterio
+		
+		int primero=202;
+			for(int i=0;i<50;i++)
+			{
+			milista[i]=primero;
+			primero+=2;
+			//System.out.println(primero);
+			}
+			for(int i=0;i<50;i++)
+				System.out.println(milista[i]);
+		
+		/*
+		for(int i=0;i<26;i++)
+		{
+			milista[i]=primero;
+			primero++;
+			
+		}
+		
+		
+		for(int i=0;i<26;i++)
+			System.out.println(milista[i]);
+		*/
+
+	}
+	
+
+
+}

@@ -1,0 +1,15 @@
+
+public class Matrices123Dimensiones
+{
+	public static void main(String[] args) 
+	{
+		//1 dimension
+		
+		int unaD[]=new int[5];
+		
+		for(int i=0;i<unaD.length;i++)
+			unaD[i]=1*5;
+		for(int v:unaD)
+			System.out.println(v);
+	}
+}

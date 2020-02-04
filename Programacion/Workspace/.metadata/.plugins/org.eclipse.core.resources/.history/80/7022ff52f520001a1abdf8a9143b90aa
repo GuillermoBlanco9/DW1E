@@ -1,0 +1,129 @@
+package ArrayLists;
+import java.util.*;
+
+
+public class OrdenadoresHashSet
+{
+	
+	
+	
+	
+
+	public static void main(String[] args) 
+	{
+		HashSet<Ordenador> ordenadores=new HashSet<>();
+		
+		ordenadores.add(new Ordenador("IBM",4,"Luna",890.43));
+		ordenadores.add(new Ordenador("Oliveti",4,"Luna",890.43));
+		ordenadores.add(new Ordenador("HP",4,"Luna",890.43));
+		ordenadores.add(new Ordenador("NCR",4,"Luna",890.43));
+		ordenadores.add(new Ordenador("Asus",4,"Luna",890.43));
+		ordenadores.add(new Ordenador("IBM",8,"Luna",890.43));
+		ordenadores.add(new Ordenador("Asus",4,"Luna",890.43));
+		ordenadores.add(new Ordenador("NCR",4,"Lunas",890.43));
+		ordenadores.add(new Ordenador("Asus",4,"Luna",890.43));
+		
+		
+		for(Ordenador e:ordenadores)
+		{
+			System.out.println(e);
+		}
+		
+		
+		
+	}
+
+}
+
+
+
+class Ordenador
+{
+	private String marca;
+	private int numProcesadores;
+	private String modelo;
+	private double precio;
+	
+	public Ordenador(String marca,int numPro,String modelo,double precio)
+	{
+		this.marca=marca;
+		this.modelo=modelo;
+		this.precio=precio;
+		numProcesadores=numPro;
+		
+	}
+	
+	public String getMarca() {
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	public int getNumProcesadores() {
+		return numProcesadores;
+	}
+	public void setNumProcesadores(int numProcesadores) {
+		this.numProcesadores = numProcesadores;
+	}
+	public String getModelo() {
+		return modelo;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+	
+	
+	public String toString()
+	{
+		String msj="Marca "+marca+" Modelo "+modelo+"\nNumero procesadores"+numProcesadores+" Precio"+precio;
+		return msj;
+	}
+
+	
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((marca == null) ? 0 : marca.hashCode());
+		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(precio);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ordenador other = (Ordenador) obj;
+		if (marca == null) {
+			if (other.marca != null)
+				return false;
+		} else if (!marca.equals(other.marca))
+			return false;
+		if (modelo == null) {
+			if (other.modelo != null)
+				return false;
+		} else if (!modelo.equals(other.modelo))
+			return false;
+		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+}

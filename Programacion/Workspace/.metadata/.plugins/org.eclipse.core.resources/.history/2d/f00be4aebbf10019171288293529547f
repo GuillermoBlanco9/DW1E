@@ -1,0 +1,20 @@
+
+public class TrabajoString {
+
+	public static void main(String[] args) 
+	{
+		String cadena1=new String(" Hoy es viernes!1!!1 ");
+		String cadena2=" Hoy es viernes!1!!1 ";
+		String cadena3=" 'bien'";
+		
+		System.out.println(cadena1.length()+" "+cadena1+cadena2+cadena3);
+		System.out.println(cadena1.concat(cadena2.concat(cadena3)));
+
+		if(cadena1.contentEquals(cadena2)) {
+			
+			System.out.println("son iguales");
+		}
+		else System.out.println("no son iguales");
+	}
+
+}

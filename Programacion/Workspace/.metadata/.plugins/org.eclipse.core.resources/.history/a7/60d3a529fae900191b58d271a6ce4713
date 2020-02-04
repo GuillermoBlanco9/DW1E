@@ -1,0 +1,30 @@
+
+public class MayoryMenor {
+
+	public static void mayorMenor()
+	{
+		//definimos las variables
+		int num1 = 13;
+		num1=18;
+		num1=8;
+		int num2 = 10;
+		
+		if(num1>num2)
+		{
+			System.out.println("El primero es mayor "+num1);
+		}
+		else
+		{
+			System.out.println("El segundo es mayor "+num2);
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		mayorMenor();
+		
+		
+
+	}
+
+}

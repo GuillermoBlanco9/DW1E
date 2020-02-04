@@ -1,0 +1,105 @@
+package ArrayLists;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class EjerciciosArrayList {
+
+	public static void main(String[] args) {
+		
+		
+		ArrayList<String> miAL=new ArrayList<>();
+		
+		miAL.add("Pepe");
+		miAL.add("Juan");
+		miAL.add("Luis");
+		miAL.add("María");
+		miAL.add("Fernando");
+		
+		System.out.println(miAL);
+		
+		
+		miAL.removeIf(var -> (var.charAt(2) == 'a' || var.charAt(2)== 'r' ));//borrar los valores de la lista que tienen una r o a en el tercer char de la cadena string
+		
+		
+		System.out.println(miAL);
+		
+		
+		HashSet<Equipos> miHS=new HashSet<Equipos>();
+		
+		miHS.add(new Equipos("Mastuerzos",21));
+		miHS.add(new Equipos("Rayotes",15));
+		miHS.add(new Equipos("Clara",22));
+		
+		System.out.println(miHS);
+		
+		miHS.removeIf(nc -> (nc.getNumComponentes() < 19));//llamamos al metodo que nos dice el numero de componentes para poder borrarlos
+		
+		System.out.println(miHS);
+		
+		
+		HashMap<Integer,Integer> miHM = new HashMap<Integer,Integer>();
+		
+		miHM.put(0,100);
+		miHM.put(1,1000);
+		miHM.put(2,10000);
+		miHM.put(3,100000);
+	
+		System.out.println(miHM);
+		
+		
+		int valor =miHM.remove(3);
+		
+		System.out.println(valor);
+		
+		System.out.println(miHM);
+	}
+
+}
+
+
+class Equipos
+{
+	
+	private String nombre;
+	private int numComponentes;
+	
+	public Equipos(String n,int nC)
+	{
+		nombre=n;
+		numComponentes=nC;
+		
+	}
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public int getNumComponentes() {
+		return numComponentes;
+	}
+
+
+	public void setNumComponentes(int numComponentes) {
+		this.numComponentes = numComponentes;
+	}
+
+
+	public String toString()
+	{
+		String msj="\nEl nombre del team es: "+nombre+"\n Tiene: "+numComponentes+" jugadores.";
+				return msj;
+	}
+	
+	
+	
+	
+}

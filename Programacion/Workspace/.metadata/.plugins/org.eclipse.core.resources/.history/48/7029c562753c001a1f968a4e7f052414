@@ -1,0 +1,104 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ejercicioDeClaseFiles {
+
+	public static void main(String[] args) throws IOException {
+		
+		
+		/*
+		crear una progresion aritmetica pidiendo al usuario el primer termino y el numero de terminos equilicua 2 datos int
+		1 el nmero 2 el numero de terminos y 3 la progresion 20 , 5 y 3 seria: 20, 23 , 26 , 29, 32.
+		lo guardamos en el fichero y le agregamos la ** fecha y la ** hora.
+		el directorio donde va a existir es: progresion y el fichero terminos progresion.
+		*/
+		FileSystem ppp=FileSystems.getDefault();
+		Path directorio=ppp.getPath("C:\\Users\\Guille\\Desktop\\PRueba de ficheros java\\Progresion"); 
+		if(Files.exists(directorio))
+			System.out.println("directorio ya creado.");
+		else
+			try {
+				Files.createDirectory(directorio);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		
+		Path fichero=ppp.getPath("C:\\Users\\Guille\\Desktop\\PRueba de ficheros java\\Progresion\\TerminosProgresion.txt");
+		if(Files.exists(fichero))
+			System.out.println("el fichero ya existe");
+			
+		else 
+		{
+			try {
+				Files.createDirectory(fichero);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		
+		
+		Scanner tec=new Scanner(System.in);
+		
+		int num1,num2,num3;
+		
+		int resultado;
+		
+		System.out.println("Introduzca el numero: ");
+		
+		num1=tec.nextInt();
+		 
+		System.out.println("Introduzca el numero de numeros: ");
+		
+		num2=tec.nextInt();
+		
+		System.out.println("Introduzca la progrsion: ");
+		
+		num3=tec.nextInt();
+		
+		
+		int datos[]=new int[num2];
+		
+		datos[0]=num1;
+		
+		
+		for(int i=1;i==num2;i++)
+		{
+			datos[i]=datos[i-1]+num3;
+		}
+		System.out.println(datos.length);
+		
+		try(BufferedWriter br= Files.newBufferedWriter(fichero, Charset.forName("UTF-32"), StandardOpenOption.APPEND))
+		{
+			Arrays.stream(datos).forEach(s -> 
+			{
+				try 
+				{
+					br.newLine();
+					br.toString();
+					br.write(s);
+				}
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+					
+					);
+		
+		
+		
+		
+
+	}
+
+}
+}

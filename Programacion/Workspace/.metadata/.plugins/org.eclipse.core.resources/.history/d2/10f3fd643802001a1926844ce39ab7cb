@@ -1,0 +1,17 @@
+
+public class UsarStringBuilder {
+
+	public static void main(String[] args)
+	{
+		StringBuilder cadena=new StringBuilder("hoy es viernes!!");
+				
+		cadena.append(" Día 8");
+		System.out.println(cadena);
+		
+		cadena.append(23.45);
+		System.out.println(cadena);
+		
+		cadena.insert(21, ", ");
+	}
+
+}

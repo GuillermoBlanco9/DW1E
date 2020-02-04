@@ -1,0 +1,51 @@
+import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Scanner;
+
+public class ejercicioDeClaseFiles {
+
+	public static void main(String[] args) {
+		
+		
+		/*
+		crear una progresion aritmetica pidiendo al usuario el primer termino y el numero de terminos equilicua 2 datos int
+		1 el nmero 2 el numero de terminos y 3 la progresion 20 , 5 y 3 seria: 20, 23 , 26 , 29, 32.
+		lo guardamos en el fichero y le agregamos la ** fecha y la ** hora.
+		el directorio donde va a existir es: progresion y el fichero terminos progresion.
+		*/
+		FileSystem ppp=FileSystems.getDefault();
+		Path directorio=ppp.getPath("C:\\Users\\Guille\\Desktop\\PRueba de ficheros java\\Progresion"); 
+		if(Files.exists(directorio))
+			System.out.println("");
+		else
+			try {
+				Files.createDirectory(directorio);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		
+		Path fichero=ppp.getPath("C:\\Users\\Guille\\Desktop\\PRueba de ficheros java\\Progresion\\TerminosProgrsion.txt");
+		if(!Files.exists(fichero))
+			try {
+				Files.createDirectory(directorio);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		
+		int n1=0,n2=0,n3=0;
+		
+		Scanner tec=new Scanner(System.in);
+		
+		String 
+		
+		
+		
+
+	}
+
+}

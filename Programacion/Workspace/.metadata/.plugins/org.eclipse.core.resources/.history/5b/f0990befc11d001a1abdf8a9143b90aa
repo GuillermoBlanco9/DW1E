@@ -1,0 +1,43 @@
+package ArrayLists;
+
+import java.util.*;
+
+public class OrdenarArrayListClase
+{
+
+	public static void main(String[] args) 
+	{
+		
+		ArrayList<Integer> miAL = new ArrayList <Integer>();
+		ArrayList<String> miALS=new ArrayList <String>();
+		
+		
+		miAL.add(9);
+		miAL.add(0);
+		miAL.add(8);
+		miAL.add(100);
+		miAL.add(2);
+		miAL.add(13);
+
+		Collections.sort(miAL);
+		
+		System.out.println(miAL);
+		
+		miALS.add("Ruba");
+		miALS.add("Migule");
+		miALS.add("Pelota");
+		miALS.add("El luismi");
+		miALS.add("La laura giourninu");
+		
+		Collections.sort(miALS);
+		
+		System.out.println(miALS);
+		
+		Comparator<Integer> comp= Collections.reverseOrder();
+		
+		Collections.sort(miAL,comp);
+		
+		System.out.println(miAL);
+	}
+
+}

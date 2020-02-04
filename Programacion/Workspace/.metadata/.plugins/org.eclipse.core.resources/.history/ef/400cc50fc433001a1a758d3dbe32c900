@@ -1,0 +1,30 @@
+package ErroresYExcepciones;
+
+public class CuartoTryCatch {
+
+	public static void main(String[] args) {
+		CuartoTryCatch obj = new CuartoTryCatch();
+		
+		System.out.println(obj.calculo());
+		
+	}
+	public String calculo()
+	{
+		try 
+		{
+		int numeros[]= {1,2,3,4,5};
+		
+		int primerPar = primerPar(numeros);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			System.out.println(e.getMessage()+" "+e.getClass());
+		}
+		return "OK";
+	}
+	public int primerPar(int v[]) throws IndexOutOfBoundsException
+	{
+		return v[8];
+	}
+	
+}

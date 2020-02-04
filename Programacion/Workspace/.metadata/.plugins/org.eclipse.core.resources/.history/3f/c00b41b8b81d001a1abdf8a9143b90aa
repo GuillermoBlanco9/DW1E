@@ -1,0 +1,62 @@
+package ArrayLists;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class EjerciciosArrayList {
+
+	public static void main(String[] args) {
+		
+		
+		ArrayList<String> miAL=new ArrayList<>();
+		
+		miAL.add("Pepe");
+		miAL.add("Juan");
+		miAL.add("Luis");
+		miAL.add("María");
+		miAL.add("Fernando");
+		
+		System.out.println(miAL);
+		
+		
+		miAL.removeIf(var -> (var.charAt(2) == 'a' || var.charAt(2)== 'r' ));
+		
+		
+		System.out.println(miAL);
+		
+		
+		HashSet<Equipos> miHS=new HashSet<Equipos>();
+		
+		miHS.add(new Equipos("Mastuerzos",21));
+		miHS.add(new Equipos("Rayotes",15));
+		miHS.add(new Equipos("Clara",22));
+		
+		System.out.println(miHS);
+	}
+
+}
+
+
+class Equipos
+{
+	
+	private String nombre;
+	private int numComponentes;
+	
+	public Equipos(String n,int nC)
+	{
+		nombre=n;
+		numComponentes=nC;
+		
+	}
+	
+	public String toString()
+	{
+		String msj="El nombre del team es: "+nombre+" Tiene: "+numComponentes+" jugadores.";
+				return msj;
+	}
+	
+	
+	
+	
+}

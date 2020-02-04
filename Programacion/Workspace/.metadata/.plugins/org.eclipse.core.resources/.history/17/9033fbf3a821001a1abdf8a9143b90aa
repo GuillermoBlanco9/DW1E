@@ -1,0 +1,133 @@
+package ArrayLists;
+
+import java.util.*;
+
+public class Diccionario 
+{
+
+	@SuppressWarnings("unlikely-arg-type")
+	public static void main(String[] args) 
+	{
+		
+		Scanner teclado=new Scanner(System.in);
+		
+		HashMap<String,String> diccionario = new HashMap <>();
+		
+		int opcion;
+		diccionario.put("mesa","table");
+		diccionario.put("puerta","door");
+		diccionario.put("hombre","man");
+		diccionario.put("mujer","woman");
+		do {
+			
+		System.out.println("  \n  ");
+		System.out.println("Introduzca \n[1] para preguntar:\n[2] para mostrar el diccionario\n[3] para salir ");
+		opcion=teclado.nextInt();
+		
+			switch(opcion)
+			{
+			case 1:
+				
+				System.out.println("Introduzca la palabra castellano: ");
+				String palabra=teclado.next();
+				System.out.println("palabra en ingles: ");
+				String word=teclado.next();
+				if(diccionario.containsKey(palabra))
+					System.out.println("Esa palabra ya existe");
+				else
+					diccionario.put(palabra, word);
+				
+	
+			
+			
+			
+			
+			
+			break;
+			
+			case 2:
+			diccionario.forEach((k,v) -> System.out.println("Español: "+k+" Ingles: "+v));
+			
+			opcion=1;
+			
+			
+			break;
+			
+			
+			
+			
+			
+			case 3:
+			System.out.println("fin del programa");
+			
+			break;
+			
+			
+			
+			
+			
+			} 
+		
+		
+	
+		
+	}while(opcion!=3);
+		
+	teclado.close();
+}
+
+	
+	
+	
+
+
+class palabra
+{
+	private String esp;
+	private String ing;
+	
+	public palabra(String esp,String ing)
+	{
+		this.esp=esp;
+		this.ing=ing;
+		
+	}
+
+	public String getEsp() {
+		return esp;
+	}
+
+	public void setEsp(String esp) {
+		this.esp = esp;
+	}
+
+	public String getIng() {
+		return ing;
+	}
+
+	public void setIng(String ing) {
+		this.ing = ing;
+	}
+	
+	
+	
+	
+	
+	public String toString()
+	{
+		String msj="Palabra en español: "+esp+"palabra en ingles: "+ing;
+		return msj;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}}
+

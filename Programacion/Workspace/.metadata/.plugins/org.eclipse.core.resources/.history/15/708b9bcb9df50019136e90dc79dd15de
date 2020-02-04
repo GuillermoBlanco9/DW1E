@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class BinarioHexadecimalOctal {
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+        System.out.print("Introduce un número decimal: ");
+        int decimal = teclado.nextInt();
+        teclado.close();
+        String hexadecimal = Integer.toHexString(decimal);
+        String octal=Integer.toOctalString(decimal);
+        System.out.println( decimal +" hexadecimal:  "+ hexadecimal+" octal: "+octal);
+        
+        while(decimal!=0)
+        	
+        {
+        	int exp=0;
+        	double num2=0;
+        	int num=decimal % 2;
+        	num2=num2+num*Math.pow(10,exp);
+        	exp++;
+        	decimal=decimal/2;
+        	 System.out.printf("num2: %.Of %n",num2);
+        }
+        
+	
+		
+     
+        }
+        
+        
+        
+        
+        
+        
+    
+	
+		
+
+
+	}
+
+
+
+	
+
+

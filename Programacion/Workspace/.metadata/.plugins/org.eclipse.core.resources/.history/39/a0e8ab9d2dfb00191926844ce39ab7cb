@@ -1,0 +1,23 @@
+import UTILIDAD.Animales;
+public class Felinos extends Animales
+{
+	public Felinos(String nombre, String habitat, boolean extin)
+	{
+		super(nombre,habitat,extin);
+	}
+	public Felinos(String nombre, String habitat, boolean extin,String alimen, int patas, String espec, boolean sexo)
+	{
+		super(nombre,habitat,extin,alimen,patas,espec,sexo);
+	}
+	public Felinos()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		
+
+	}
+
+}

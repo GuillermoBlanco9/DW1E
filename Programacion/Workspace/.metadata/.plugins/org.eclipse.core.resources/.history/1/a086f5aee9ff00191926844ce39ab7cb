@@ -1,0 +1,27 @@
+import UTILIDAD.Animales;
+public class Felinos extends Animales
+{
+	public Felinos(String nombre, String habitat, boolean extin)
+	{
+		super(nombre,habitat,extin);
+	}
+	public Felinos(String nombre, String habitat, boolean extin,String alimen, int patas, String espec, boolean sexo)
+	{
+		super(nombre,habitat,extin,alimen,patas,espec,sexo);
+	}
+	public Felinos()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		Felinos gato=new Felinos("Gato","La calle",false);
+		Felinos tigre=new Felinos("Tigre","Jungla",true,"matorrales",5,"Felino",true);
+		
+		System.out.println("Nombre: "+gato.getNombre()+" Habitat: "+gato.getHabitat()+" Peligro de extincion: "+gato.isExtin());
+		System.out.println("Nombre: "+tigre.getNombre()+" Habitat: "+tigre.getHabitat()+" Peligro de extincion: "+tigre.isExtin()+" Alimentacion: "+tigre.getAlimen()+" Patas: "+tigre.getPatas()+" Especie: "+tigre.getEspecie()+" Sexo: "+tigre.isSexo());
+	
+	}
+
+}

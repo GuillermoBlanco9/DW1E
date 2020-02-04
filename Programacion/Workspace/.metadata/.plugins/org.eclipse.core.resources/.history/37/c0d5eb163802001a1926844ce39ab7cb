@@ -1,0 +1,11 @@
+
+public class UsarStringBuilder {
+
+	public static void main(String[] args) {
+		String a=new String("Hola");
+		String b="Hola";
+		System.out.println(a.compareTo(b));
+
+	}
+
+}

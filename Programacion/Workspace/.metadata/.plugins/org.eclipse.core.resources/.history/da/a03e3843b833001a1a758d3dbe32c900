@@ -1,0 +1,29 @@
+package ErroresYExcepciones;
+
+import java.util.*;
+
+public class PrimerTryCatch 
+{
+
+	public static void main(String[] args) 
+	{
+		double cantidad=0;
+		try(Scanner teclado=new Scanner(System.in))
+		{
+			System.out.println("introduce la cantidad: ");
+			cantidad=teclado.nextDouble();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Estoy en excepcion");
+			e.printStackTrace();
+		}
+		catch(Throwable t)
+		{
+			t.printStackTrace();
+		}
+		
+		System.out.println(cantidad);
+	}
+
+}

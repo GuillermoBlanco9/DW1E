@@ -1,0 +1,10 @@
+import clasesUtiles.Sumar;
+public class nuevasOperaciones {
+
+	public static void main(String[] args) {
+	Sumar obj=new Sumar();
+	System.out.println(obj.sumas(32.6969,27,2));
+
+	}
+
+}

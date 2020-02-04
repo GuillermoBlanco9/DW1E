@@ -1,0 +1,99 @@
+package Calculadora;
+import java.util.*;
+
+public class Claculadora implements CalculoBase,CalculoAvanzado
+{
+
+	private double a;
+	private double b;
+
+	public static void main(String[] args) 
+	{
+		
+		int opcion;
+		Scanner teclado=new Scanner(System.in);
+		Claculadora obj=new Claculadora();
+		System.out.println("Opcion 1: calculadora base \nOpcion 2: calculadora pro");
+		opcion=teclado.nextInt();
+		
+		
+		
+		
+		switch(opcion)
+		{
+			case 1:
+				System.out.println("Introduzca dos numeros: ");
+				
+				double a=teclado.nextDouble();
+				System.out.println("*********");
+				double b=teclado.nextDouble();
+				teclado.close();
+				double resulSuma=obj.suma(a, b);
+				double resulResta=obj.resta(a, b);
+				System.out.println(resulSuma+" "+resulResta);
+		
+			case 2:
+				
+				
+				
+				
+				
+				
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+	
+	public double sumaA(double a) {
+		return a+Math.PI;
+	}
+
+	
+	public double restaA(double a) {
+		return a-Math.PI;
+	}
+
+	public double log(int a, int b) {
+		double x;
+		x=Math.log(b)/Math.log(a);
+		return x;
+	}
+
+	public double suma(double a, double b) {
+		return a+b;
+	}
+
+	
+	public double resta(double a, double b) {
+		return a-b;
+	}
+
+	public double mult(double a, double b) {
+		return a*b;
+	}
+
+	public double div(double a, double b) {
+		return a/=b;
+	}
+
+}

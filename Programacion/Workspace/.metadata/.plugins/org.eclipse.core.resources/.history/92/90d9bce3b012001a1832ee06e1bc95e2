@@ -1,0 +1,39 @@
+package Ejercicios1Ev;
+
+public abstract class SerVivo
+{
+	String comer="Comida";
+	String nombre;
+	double altura;
+	int edad;
+	int patas;
+	String claseA,claseP;
+	boolean extinc;
+	
+	
+	
+	
+	abstract String comer(String a);
+	
+	abstract String beber(String b);
+	
+	public void deseoVivir()
+	{
+		System.out.println("Deseo Morir.");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

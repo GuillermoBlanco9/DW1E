@@ -1,0 +1,89 @@
+package Cliente;
+import java.util.*;
+
+
+public class GuillermoBlancoExamenP1Eva extends Cliente
+{
+
+	public static void main(String[] args) 
+	{
+		String id="";
+		String nombre="";
+		String fechaNacimiento;
+		double sueldo=0;
+		boolean vip=false;
+		
+		Cliente obj=null;
+		
+		Scanner texto=new Scanner(System.in);
+		
+		System.out.println("¿Cuantos clientes desea dar de alta?");
+		
+		int numDat=texto.nextInt();
+		
+		Cliente contenedor[]=new Cliente[numDat];
+		
+		ArrayList <Cliente> misClientesVip=new ArrayList <Cliente>();
+		
+		ArrayList <Cliente> misClientesNoVip=new ArrayList <Cliente>();
+		
+		for(int i=0;i<numDat;i++)
+		{	
+			vip=false;
+			
+			id="Cliente"+i;
+			System.out.println("Introduzca el nombre");
+			
+			nombre=texto.next();
+			
+			System.out.println("Fecha de nacimiento");
+			
+			fechaNacimiento=texto.next();
+			
+			System.out.println("Sueldo:(si no lo sabe introduzca 0) ");
+			
+			sueldo=texto.nextDouble();
+			
+			System.out.println("VIP(true/false:" );
+			
+			vip=texto.hasNext();
+			
+			if(sueldo==0)
+				obj=new Cliente(id,nombre,fechaNacimiento,vip);
+			else
+				obj=new Cliente(id,nombre,fechaNacimiento,sueldo,vip);
+			
+			
+			
+			
+			contenedor[i]=obj;
+			
+			
+			
+			
+				
+			
+			
+		}
+		texto.close();
+		
+		for(Cliente x:contenedor)
+			misClientesNoVip.add(x);
+		for(Cliente x:contenedor)
+			misClientesVip.add(x);
+		
+		
+
+		for(Cliente y:misClientesNoVip)
+			System.out.println("Clientes generales\n"+y.datos());
+		for(Cliente x:misClientesVip)
+			System.out.println("Clientes vip\n"+x.toString());
+		
+		
+		
+		
+		
+		 
+	}
+
+}

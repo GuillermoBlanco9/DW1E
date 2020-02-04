@@ -1,0 +1,27 @@
+import java.util.Random;
+public class numeroAleatorio {
+	
+	
+	public static void main(String[] args) 
+	{
+		
+		int v;
+		Random numeroAlea=new Random(System.currentTimeMillis());
+		
+		
+		
+		
+		do
+		{
+			v=15+numeroAlea.nextInt(106);
+			System.out.println(v);
+			
+			//v=numeroAlea.doubles(20.0'150.0);
+		}while (v!=32);
+		System.out.println("The last "+v);
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,76 @@
+package Ejercicios1Ev;
+
+import java.util.ArrayList;
+
+
+
+public class Animal extends SerVivo implements Pastillas
+{
+
+	public static void main(String[] args) 
+	{
+		
+		
+		Animal obj=new Animal();
+		Animal obj2=new Animal();
+		Animal obj3=new Animal();
+		Animal obj4=new Animal();
+		
+		obj.altura=4;
+		obj2.altura=2;
+		obj3.altura=4;
+		obj4.altura=3;
+		
+		
+		
+		
+		Animal seres[]=new Animal[4];
+		
+		ArrayList <Animal> gilipollas=new ArrayList <Animal>();
+		
+		for(int i=0;i<4;i++)
+		{
+			seres[i]=obj;
+		}
+		
+		for(Animal x:seres)
+		{
+			gilipollas.add(x);
+		}
+		
+		
+
+	}
+
+	
+	public String recordarPastilla(String a)
+	{
+		
+		return null;
+	}
+
+	
+	public String visita(String a, String b) 
+	{
+		
+		return null;
+	}
+
+	
+	public String comer(String a) 
+	{
+		String x="Comida";
+		return x;
+	}
+
+	
+
+
+	
+	public String beber(String b)
+	{
+		String x="Agua";
+		return x;
+	}
+
+}

@@ -1,0 +1,12 @@
+
+public class TrabajoString {
+
+	public static void main(String[] args) 
+	{
+		String cadena1=new String(" Hoy es viernes!1!!1 ");
+		
+		System.out.println(cadena1.length());
+
+	}
+
+}

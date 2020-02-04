@@ -1,0 +1,38 @@
+
+public class Constructores {
+	String nombre;
+	int edad;
+	double precio;
+
+	
+	
+	public Constructores(String nombre, int edad, double precio)
+	{
+		
+		Constructores obj1=new Constructores("pepe",25,345.23);
+		Constructores obj2=new Constructores("joa",23,1000000.34);
+		
+		
+		
+		
+		
+		this.nombre=nombre;
+		this.edad=edad;
+		this.precio=precio;
+		
+		
+		
+		Constructores listaCons[]=new Constructores[2];
+		
+		
+		
+		
+		
+		
+	}
+	public static void main(String[] args) {
+		
+		System.out.println();
+	}
+
+}

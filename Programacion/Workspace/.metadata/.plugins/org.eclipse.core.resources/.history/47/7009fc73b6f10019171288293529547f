@@ -1,0 +1,59 @@
+
+public class Enumerados {
+	public enum Persones{Maria,Jueves,Chus,Diego,Jose}
+	
+
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		int i=2;
+		
+		Persones nombre=Persones.Maria;
+		
+		System.out.println(nombre+" dijo");
+		
+		System.out.println("\"hola\n  aa \n  aaaaaaaaaaaaaaaaaaaa a\"");
+		
+		int j=i++;
+		
+		i+=20;
+		
+		String valor=(i<j)?"cierto":"falso";
+		
+		int valorNum=0;
+		
+		valorNum=(i>j)?valorNum+20:valorNum+1;
+		
+		System.out.println(i);
+		
+		System.out.println(j);
+		
+		System.out.println(valorNum+" este es valor num");
+		
+		System.out.println(valor);
+		
+		//--------------------------------------------------------
+		
+		String b="jota";
+		
+		String c="JotA";
+		
+		String resul=(b.equalsIgnoreCase(c))?"igual":"distinto";
+		System.out.println(resul+" "+c+" que "+b);
+		
+		int num=-20;
+		int num2=40;
+		
+		int numDespla=num<<3;
+		
+		int numDesplaz=num>>>2;
+		
+		System.out.println(num+" "+numDespla+" "+numDesplaz);
+		System.out.println(" suma normal: "+(num+num2)+" suma and: "+(num&num2)+" suma or: "+(num|num2)+" suma xor: "+(num^num2));
+
+	}
+
+}

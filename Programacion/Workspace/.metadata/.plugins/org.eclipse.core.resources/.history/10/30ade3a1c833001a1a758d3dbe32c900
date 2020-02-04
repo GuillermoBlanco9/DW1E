@@ -1,0 +1,34 @@
+package ErroresYExcepciones;
+
+public class sextoTryCatch
+{
+
+	public static void main(String[] args) {
+		
+		boolean edad=false;
+		
+		try 
+		{
+			if(!edad)
+			{
+				throw new FalsoException("Detactado menor de edad.");
+			}
+		}
+		catch(FalsoException e)
+		{
+			System.out.println(e.getMessage()+"   "+e.getClass());
+		}
+		
+		System.out.println("Puedes pasar.");
+		
+	}
+
+}
+
+class FalsoException extends Exception
+{
+	public FalsoException(String s)
+	{
+		
+	}
+}

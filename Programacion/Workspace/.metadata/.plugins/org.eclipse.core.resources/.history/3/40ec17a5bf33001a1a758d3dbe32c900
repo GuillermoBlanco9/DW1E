@@ -1,0 +1,24 @@
+package ErroresYExcepciones;
+
+public class tercerTryCatch
+{
+
+	public static void main(String[] args) 
+	{
+		int v1=4, v2=0;
+		
+		int resultado=operacion(v1,v2);
+		
+			System.out.println(resultado);
+		
+	}
+	public static int operacion(int a, int b) throws ArithmeticException
+	{
+		int resultado=0;
+		
+			resultado= (a/b);
+		
+		
+		return resultado;
+	}
+}

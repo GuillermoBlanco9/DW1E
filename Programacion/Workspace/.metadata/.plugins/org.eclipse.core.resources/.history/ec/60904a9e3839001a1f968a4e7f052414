@@ -1,0 +1,59 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
+public class LeerFichero {
+
+	public static void main(String[] args) throws IOException {
+		//creamos un objeto del tipo file system
+		FileSystem pepe=FileSystems.getDefault();
+		//asignamos el camino del fichero
+		Path pepe1=pepe.getPath("C:\\Users\\Guille\\Desktop\\PRueba de ficheros java\\ejemplo.txt");
+		//nos creamos le array que contendra los elementos a meter en el archivo lol
+		String pepon[]= new String[] {"luismi","","luismi"};
+		//nos cramos el stream por que no se pueden meter directamente strings en el archivo
+		
+		//me creo el buffer para meter los datos del array incluyendo poner el metodo arrays.stream que convierte el contenido en stream
+		try(BufferedWriter pepote= Files.newBufferedWriter(pepe1, Charset.forName("UTF-8"), StandardOpenOption.APPEND))
+		{
+			Arrays.stream(pepon).forEach(s ->
+			{
+				try
+				{
+					pepote.newLine();
+					pepote.write(s);
+				}
+				catch(IOException e)
+				{ 
+					e.printStackTrace();
+				}
+				
+			}
+					
+					);
+			
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		try(Stream<String> pepito=Files.lines(pepe1,Charset.forName("UTF-8")))
+		{
+			//lee el archivo
+			pepito.forEach((String s) -> System.out.println(s));
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+
+}

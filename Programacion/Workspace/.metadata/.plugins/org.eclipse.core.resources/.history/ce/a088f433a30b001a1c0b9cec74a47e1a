@@ -1,0 +1,27 @@
+package UTILIDAD;
+
+public class CLaseHija extends ClaseMadre
+{
+	public CLaseHija()
+	{
+		super("Juan",1900.00);
+	}
+	
+
+	public static void main(String[] args) 
+	{
+		CLaseHija obj=new CLaseHija();
+		
+		System.out.println(obj.mostrar());
+		
+		System.out.println("Sueldo; "+(double)Math.round(obj.calculo(1)*100)/100);
+		
+	}
+
+	@Override
+	public double calculo(double cuota) {
+		
+		return cuota*1.05;
+	}
+
+}

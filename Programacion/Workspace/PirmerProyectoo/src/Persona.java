@@ -1,0 +1,62 @@
+public class Persona
+{
+	String colorPelo; //cadenas de palabras
+	int altura;//numeros enteros
+	//float peso; con decimales
+	double peso;//con decimales pero mas preciso
+	String nombre;
+	boolean barba;//datos de true y false o 1 y 0
+	int calzado;
+
+	public static void main(String[] args) 
+	{
+		
+		Persona luisa=new Persona();
+		Persona paco=new Persona();
+		
+		luisa.nombre="luisa";
+		luisa.altura=178;
+		luisa.colorPelo="moreno";
+		luisa.peso=68;
+		luisa.barba=false;
+		
+		luisa.andar();
+		
+		paco.altura=178;
+		paco.colorPelo="rubio";
+		paco.peso=78;
+		paco.barba=true;
+		
+		paco.andar();
+		paco.nombre="paco";
+
+	}
+	
+	public void andar()
+	{
+		System.out.println("he andado 20 kilometros");
+		
+	}
+	public int peso(int kilos)
+	{
+		int totalKilos;
+		totalKilos=kilos+15;
+		return totalKilos;
+		
+	}
+	
+	public boolean fichado()
+	{
+		return true;
+		
+		
+	}
+	
+	public void enseñaPropiedades()
+	{
+		System.out.println("la altura de luisa es"+altura);
+		System.out.println("la altura de paco es"+altura);
+	}
+	
+	
+}

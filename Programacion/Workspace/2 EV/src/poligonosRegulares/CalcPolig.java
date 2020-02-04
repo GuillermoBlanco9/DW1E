@@ -1,0 +1,162 @@
+package poligonosRegulares;
+import java.util.*;
+//area perimeto altura apotema n angulos amplitud del angulo nombre poligono
+public class CalcPolig implements bases
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner teclado=new Scanner(System.in);
+		
+		System.out.println("Introduzca el numero de lados del 1 al 10: ");
+		
+		int numLado=teclado.nextInt();
+		
+		System.out.println("Introduzca el tamaño del lado: ");
+		
+		double tamLado=teclado.nextDouble();
+		
+		CalcPolig obj=new CalcPolig();
+		
+		switch (numLado) {
+		case 1:
+			System.out.println("El area es: "+obj.calculoCir(tamLado));
+			System.out.println("Es un circulo");
+			System.out.println("La apotema es: "+tamLado);
+			System.out.println("El perimetro es: "+obj.calculoPer(tamLado));
+			System.out.println("La altura es: "+tamLado*2);
+			System.out.println("Tiene"+numLado+" angulos");
+			System.out.println();
+			break;
+		case 2:
+			System.out.println("No hay poligonos de dos lados.");
+			break;
+		case 3:
+			System.out.println("El area es: "+obj.calculoTri(tamLado));
+			System.out.println("Es un triangulo");
+			break;
+		case 4:
+			System.out.println();
+	
+			break;
+		case 5:
+	
+			break;
+		case 6:
+	
+			break;
+		case 7:
+			
+			break;
+		case 8:
+			
+			break;
+		case 9:
+			
+			break;
+		case 10:
+			
+			break;
+		default:
+			System.out.println("No hay datos para ese poligono.");
+			break;
+			
+		
+		}
+		
+		teclado.close();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	
+	public double calculoTri(double a) {
+		double resulTri;
+		resulTri=Math.sqrt(3)/4*(a*a);
+		
+		
+		return resulTri;
+		
+	}
+	
+	public double calculoPer(double a)
+	{
+		double resulPer=Math.PI*2*a;
+		
+		return resulPer;
+	}
+	
+	public double calculoAp(double a)
+	{
+		double resulAp;
+		resulAp=a/2;
+		
+		return resulAp;
+		
+	}
+
+	
+	public double calculoCua(double a) {
+		
+		return 0;
+	}
+
+	
+	public double calculoPen(double a) {
+		
+		return 0;
+	}
+
+	
+	public double calculoHex(double a) {
+		
+		return 0;
+	}
+
+	
+	public double calculoHep(double a) {
+
+		return 0;
+	}
+
+	
+	public double calculoOct(double a) {
+		
+		return 0;
+	}
+
+	
+	public double calculoEne(double a) {
+		
+		return 0;
+	}
+
+	
+	public double calculoDec(double a) {
+		double resulDec;
+		
+		
+		return 0;
+	}
+
+
+	
+	public double calculoCir(double a) {
+		double resulCir;
+		resulCir=Math.PI*(a*a)/4;
+		
+		return resulCir;
+	}
+
+}

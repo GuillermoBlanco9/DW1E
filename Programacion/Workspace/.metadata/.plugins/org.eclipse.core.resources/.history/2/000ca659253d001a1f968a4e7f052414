@@ -1,0 +1,57 @@
+import java.util.*;
+
+
+public class guillermoBlancoP02_Errores {
+
+	public static void main(String[] args) {
+		
+		
+		String nom="Excelencia";
+		double num=0.0;
+		
+		
+		try(Scanner dato=new Scanner(System.in);)
+		{
+			nom=dato.next();
+			if(nom=="Sra" | nom=="Sr")
+			{
+				System.out.println("si");
+				
+			}
+			else
+			{
+				throw new TratamientoException("El tratamiento de "+nom+" no es correcto.");
+			}
+			
+		}
+		catch(TratamientoException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+
+	}
+
+}
+
+class TratamientoException extends Exception
+{
+	public TratamientoException(String s)
+	{
+		super(s);
+	}
+	
+}
+
+class NegativoException extends Exception
+{
+	public NegativoException(String s)
+	{
+		super(s);
+	}
+	
+}
+
+

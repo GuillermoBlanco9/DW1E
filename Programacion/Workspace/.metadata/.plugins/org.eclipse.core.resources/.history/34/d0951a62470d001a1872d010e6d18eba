@@ -1,0 +1,54 @@
+package Ejercicios1Ev;
+
+public class Animal extends SerVivo implements Pastillas
+{
+
+	public static void main(String[] args) 
+	{
+		
+		
+		Animal obj=new Animal();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+	
+	public String recordarPastilla(String a)
+	{
+		
+		return null;
+	}
+
+	
+	public String visita(String a, String b) 
+	{
+		
+		return null;
+	}
+
+	
+	String comer(String a) 
+	{
+		
+		return null;
+	}
+
+	
+
+
+	
+	String beber(String b) {
+		
+		return null;
+	}
+
+}

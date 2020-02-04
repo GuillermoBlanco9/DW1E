@@ -1,0 +1,79 @@
+package ErroresYExcepciones;
+import java.util.Scanner;
+
+
+
+public class ej22
+{
+
+	public static void main(String[] args) 
+	{
+		int n1,n2;
+		double resul;
+		try(Scanner teclado=new Scanner(System.in))
+				{
+			System.out.println("Introduca el porcentaje y el numero ");
+					n1=teclado.nextInt();
+					n2=teclado.nextInt();
+					resul=(n1%n2);
+					
+					if(resul>=0 && resul<=100)
+					{
+						System.out.println(resul);
+					}
+					else
+					{
+						if(resul>100&&resul<=1000)
+						{
+							throw new Exception("sobrecoste");
+						}
+						
+						else
+						{
+							throw new Exception("Excesivo");
+						}
+					}
+					
+					
+					
+				}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+		
+		/*
+		double n1,n2,resul;
+		try(Scanner teclado=new Scanner(System.in);)
+		{
+			System.out.println("Introduzca un divisor y un dividendo:\n ");
+			n1=teclado.nextDouble();
+			n2=teclado.nextDouble();
+			resul=n1/n2;
+			if(n2<0)
+			{
+				throw new ArithmeticException("Divisor negativo");
+			}
+			else
+				if(n2==0)
+			{
+				throw new ArithmeticException("EL divisor es 0");
+			}
+				else
+				{
+					System.out.println(resul);
+				}
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println(e.getMessage());
+		}*/
+		
+
+	}
+
+}
+//recojer 2 numeros operacion de dividir y controlar error de dividir por 0 y si el divisor es negativo tambien error

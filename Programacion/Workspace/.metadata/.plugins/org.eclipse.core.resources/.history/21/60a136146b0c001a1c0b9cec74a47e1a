@@ -1,0 +1,20 @@
+package UTILIDAD;
+
+public interface MiInterfaz 
+{
+	
+	final String NOMBRE="Pepe";
+	
+	public double altura=177.7;
+	
+	static int anos=20;
+	
+	public double sumar(double a,double b);
+	
+	
+	public int sumar(int a,int b);
+	
+	
+	public void mostrar(double a);
+	
+}

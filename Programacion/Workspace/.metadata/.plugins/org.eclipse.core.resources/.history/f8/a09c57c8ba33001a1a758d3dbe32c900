@@ -1,0 +1,22 @@
+package ErroresYExcepciones;
+
+public class segundoTryCatch 
+{
+
+	public static void main(String[] args) 
+	{
+		int num=10, den=0, res=0;
+		
+		try 
+		{
+			res=num/den;
+		} 
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		System.out.println(res);
+	}
+
+}

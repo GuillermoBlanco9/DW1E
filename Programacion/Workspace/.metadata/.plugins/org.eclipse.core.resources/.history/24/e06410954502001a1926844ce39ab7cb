@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+
+public class Empleados {
+
+	public static void main(String[] args) {
+				Empleado emp1=new Empleado("Juan",1500.30,false);
+				Empleado emp2=new Empleado("Juan",1500.30,false);
+				Empleado emp3=new Empleado("Juan",1500.30,false);
+				Empleado emp4=new Empleado("Juan",1500.30,false);
+				
+				ArrayList<Empleado> listaEmpleados=new ArrayList<Empleado>();
+
+				listaEmpleados.add(emp1);
+				listaEmpleados.add(emp2);
+				listaEmpleados.add(emp3);
+				listaEmpleados.add(emp4);
+				listaEmpleados.add(new Empleado("maria",2000.20,true));
+				for(Empleado e:listaEmpleados)
+					System.out.println(e.getDatos());
+				/*
+				listaEmpleados.clear();
+				System.out.println("*************");
+				for(Empleado e:listaEmpleados)
+					System.out.println(e.getDatos());*/
+				listaEmpleados.get(4).getDatos();
+	}
+
+}
+ 
+class Empleado
+{
+	private String nombre;
+	private double sueldo;
+	private boolean soltero;
+	
+	public Empleado(String nom,double suel,boolean sol)
+	{
+		nombre=nom;
+		sueldo=suel;
+		soltero=sol;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public double getSueldo() {
+		return sueldo;
+	}
+	public void setSueldo(double sueldo) {
+		this.sueldo = sueldo;
+	}
+	public boolean isSoltero() {
+		return soltero;
+	}
+	public void setSoltero(boolean soltero) {
+		this.soltero = soltero;
+	}
+	public String getDatos()
+	{
+		String msj=nombre+" "+sueldo+" "+soltero;
+		return msj;
+	}
+}

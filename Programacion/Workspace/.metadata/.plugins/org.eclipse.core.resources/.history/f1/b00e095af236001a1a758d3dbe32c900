@@ -1,0 +1,42 @@
+package ErroresYExcepciones;
+import java.util.*;
+import java.io.*;
+
+
+public class ej22
+{
+
+	public static void main(String[] args) 
+	{
+		
+		double n1,n2,resul;
+		try(Scanner teclado=new Scanner(System.in);)
+		{
+			System.out.println("Introduzca un divisor y un dividendo:\n ");
+			n1=teclado.nextDouble();
+			n2=teclado.nextDouble();
+			resul=n1/n2;
+			if(n1<0)
+			{
+				System.out.println("Divisor negativo");
+			}
+			else
+				if(n1==0)
+			{
+				throw new ArithmeticException("EL divisor es 0");
+			}
+				else
+				{
+					System.out.println(resul);
+				}
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+
+	}
+
+}
+//recojer 2 numeros operacion de dividir y controlar error de dividir por 0 y si el divisor es negativo tambien error

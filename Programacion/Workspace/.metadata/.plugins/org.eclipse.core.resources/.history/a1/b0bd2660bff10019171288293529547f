@@ -1,0 +1,42 @@
+
+public class TrabajoString {
+
+	public static void main(String[] args) 
+	{
+		String cadena1=new String("Hoy es viernes!1!!1 ");
+		String cadena2=". y mañana es sabado";
+		String cadena3=" 'bien'";
+		int numero=12345;
+		double numdouble=123456.89;
+		System.out.println(cadena1.length()+" "+cadena1+cadena2.toUpperCase()+cadena3);
+		System.out.println(cadena1.concat((cadena2.toUpperCase()).concat(cadena3)));
+
+		if(cadena1.contentEquals(cadena2)) {
+			
+			System.out.println("son iguales");
+		}
+		else System.out.println("no son iguales");
+		
+		String etiqueta=String.valueOf(numero);
+		String etiqueta2=String.valueOf(numdouble);
+		
+		System.out.println(etiqueta+" "+etiqueta2);
+		
+		String parteCadena=cadena1.substring(7,13);
+		
+		System.out.println(parteCadena);
+		
+		char letra=cadena1.charAt(2);
+		
+		System.out.println(letra);
+		
+		String cadena4=" ";
+		
+		String dato=(cadena4.isEmpty())?"Vacia":"Llena";
+		
+		System.out.println(dato);
+		
+		
+	}
+
+}

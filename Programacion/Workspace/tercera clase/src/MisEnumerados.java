@@ -1,0 +1,43 @@
+
+public class MisEnumerados 
+{
+	public enum Clase
+	{
+		mates("Aula 13",20),fisica("Aula 1",12),programacion("Aula 0",22);
+		
+		public String aula;
+		public int numAlumnos;
+		private Clase(String aula,int numAlumnos)
+		{
+			this.aula=aula;
+			this.numAlumnos=numAlumnos;
+			
+		}
+		public String toString(Clase obj)
+		{
+			String mensaje="El nombre es: "+obj.name()+" y el aula es: "+obj.aula;
+			
+			return mensaje;
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		Clase miClase=Clase.fisica;
+		Clase miClase2=Clase.mates;
+		Clase miClase3=Clase.programacion;
+		System.out.println(miClase.name()+" "+miClase.aula+" "+miClase.numAlumnos);
+		System.out.println(miClase.toString(miClase));
+		System.out.println(miClase2.toString(miClase2));
+		System.out.println(miClase.toString(miClase3));
+		
+	}
+	
+
+}

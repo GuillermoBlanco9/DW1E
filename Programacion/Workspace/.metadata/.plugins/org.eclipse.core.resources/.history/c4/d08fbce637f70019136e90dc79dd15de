@@ -1,0 +1,46 @@
+
+public class GetterSetter {
+
+	
+	private String nombre;
+	private double sueldo;
+	private short edad;
+	
+	public GetterSetter(String n,double s,short e) 
+	{
+		nombre=n;
+		sueldo=s;
+		edad=e;
+	}
+	
+	public static void main(String[] args) 
+	{
+		GetterSetter Juan=new GetterSetter("juan",12000.40,(short)24);
+		System.out.println(Juan.nombre);
+
+	}
+	public void setNombre( String n)
+	{
+		nombre=n;
+	}
+	public void setSueldo(double s)
+	{
+		sueldo=s;
+	}
+	public void setEdad(short e)
+	{
+		edad=e;
+	}
+	public String getNombre()
+	{
+		return nombre;
+	}
+	public double getSueldo()
+	{
+		return sueldo;
+	}
+	public short getEdad()
+	{
+		return edad;
+	}
+}

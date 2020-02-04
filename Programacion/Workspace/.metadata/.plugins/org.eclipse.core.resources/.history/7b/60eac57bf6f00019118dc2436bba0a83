@@ -1,0 +1,22 @@
+
+public class Enumerados {
+	public enum Persones{Maria,Jueves,Chus,Diego,Jose}
+	
+
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		int i=2;
+		Persones nombre=Persones.Maria;
+		System.out.println(nombre+" dijo");
+		System.out.println("\"hola\n  aa \n  aaaaaaaaaaaaaaaaaaaa a\"");
+		
+		i+=20;
+		System.out.println(i);
+
+	}
+
+}

@@ -1,0 +1,43 @@
+package Calculadora;
+
+public class Claculadora implements CalculoBase,CalculoAvanzado
+{
+
+	public static void main(String[] args) 
+	{
+		
+
+	}
+
+	
+	public double sumaA(double a) {
+		return 0;
+	}
+
+	
+	public double restaA(double a) {
+		return 0;
+	}
+
+	public double log(double a, double b) {
+		return 0;
+	}
+
+	public double suma(double a, double b) {
+		return 0;
+	}
+
+	
+	public double resta(double a, double b) {
+		return 0;
+	}
+
+	public double mult(double a, double b) {
+		return 0;
+	}
+
+	public double div(double a, double b) {
+		return 0;
+	}
+
+}

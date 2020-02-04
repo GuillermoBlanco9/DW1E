@@ -1,0 +1,14 @@
+
+public class TrabajoString {
+
+	public static void main(String[] args) 
+	{
+		String cadena1=new String(" Hoy es viernes!1!!1 ");
+		String cadena2=". y mañana es sabado";
+		
+		System.out.println(cadena1.length()+" "+cadena1+cadena2);
+		System.out.println(cadena1.concat(cadena2));
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package clasesUtiles;
+//import clasesUtiles.*; para traerlo de otro paquete todas las clases de clases utiles
+import clasesUtiles.Sumar;
+public class Operaciones {
+
+	public static void main(String[] args)
+	{
+		Sumar miSuma=new Sumar();
+		System.out.println(miSuma.sumas(9.696969, 10, 50));
+		
+		System.out.println(miSuma.sumas(19, 50));
+
+	}
+
+}

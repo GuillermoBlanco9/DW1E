@@ -1,0 +1,22 @@
+import java.time.*;
+public class PruebaExamen
+{
+
+	public static void main(String[] args)
+	{
+		
+	}
+
+}
+
+
+class Estudiante
+{
+	private String id;
+	private String nombre;
+	private localDate fechaContrato;
+	private localDate fechaCumple;
+	private boolean repetidor;
+	private double costeMatricula;
+	
+}

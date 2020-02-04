@@ -1,0 +1,44 @@
+package ArrayLists;
+import java.util.*;
+public class Equipo {
+
+	
+
+	private int jug;
+	private String nombre;
+
+
+	public Equipo (String nombre,int jug)
+	{
+		this.nombre=nombre;
+		this.jug=jug;
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		String nombre;
+		int jug;
+		HashSet<Equipo> miHS=new HashSet<>();
+		
+		
+		
+		
+		
+		ArrayList<String> miAL=new ArrayList<>();
+		
+		miAL.add("Pepe");
+		miAL.add("Juan");
+		miAL.add("Luis");
+		miAL.add("Fernando");
+		miAL.add("Maria");
+		
+		System.out.println(miAL);
+		
+		miAL.removeIf(n ->(n.contains("r")||n.contains("a")));
+		
+		System.out.println(miAL);
+		
+	}
+
+}
